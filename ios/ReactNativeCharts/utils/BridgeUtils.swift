@@ -154,6 +154,8 @@ class BridgeUtils {
     }
     
     static func parseEasingOption(_ option: String) -> ChartEasingOption {
+        return .linear
+        /*
         let iosEnumString = String(option.first!).lowercased() + String(option.dropFirst())
         
         switch iosEnumString {
@@ -222,6 +224,7 @@ class BridgeUtils {
         default:
             return .linear
         }
+        */
     }
 
     static func parseAxisDependency(_ option: String) -> YAxis.AxisDependency {
