@@ -43,9 +43,9 @@ public class RNOnChartValueSelectedListener implements OnChartValueSelectedListe
                     "topSelect",
                     EntryToWritableMapUtils.convertEntryToWritableMap(entry));
 
-            WritableMap map = new WritableNativeMap();
-            map.putArray("data", getEntiesForXValue(entry.getX()));
-            reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(chart.getId(),"topChange", map);
+          //  WritableMap map = new WritableNativeMap();
+          //  map.putArray("data", getEntiesForXValue(entry.getX()));
+          //  reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(chart.getId(),"topChange", map);
         }
     }
 
