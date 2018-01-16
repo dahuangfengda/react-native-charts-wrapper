@@ -64,11 +64,11 @@ public class RNOnChartValueSelectedListener implements OnChartValueSelectedListe
     }
 
 
-    private WritableArray getEntiesForXValue(float x) {
+    public static WritableArray getEntiesForXValue(Chart chart,float x) {
 
         WritableArray arr = new WritableNativeArray();
 
-        ArrayList<LineDataSet> dataSets = (ArrayList<LineDataSet>) this.chart.getData().getDataSets();
+        ArrayList<LineDataSet> dataSets = (ArrayList<LineDataSet>) chart.getData().getDataSets();
         for(int i=0; i< dataSets.size(); i++) {
 
             String label = ((LineDataSet)dataSets.get(i)).getLabel();
