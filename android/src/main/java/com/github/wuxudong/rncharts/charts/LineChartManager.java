@@ -3,10 +3,15 @@ package com.github.wuxudong.rncharts.charts;
 
 import android.util.Log;
 
+import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.WritableArray;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
+import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.data.Entry;
@@ -18,6 +23,8 @@ import com.github.wuxudong.rncharts.listener.RNOnChartGestureListener;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+
+import javax.annotation.Nullable;
 
 public class LineChartManager extends BarLineChartBaseManager<LineChart, Entry> {
 
