@@ -8,7 +8,7 @@
 #import "RNBarLineChartManagerBridge.h"
 
 @interface RCT_EXTERN_MODULE(RNLineChartManager, RCTViewManager)
-
 EXPORT_BAR_LINE_CHART_BASE_PROPERTIES
 
+RCT_EXTERN_METHOD(getValuesFromX:(nonnull NSNumber *)reactTag xValue:(nonnull NSNumber *)xValue )
 @end
