@@ -8,11 +8,15 @@ import UIKit
 open class RNLineChartManager: RCTViewManager, RNBarLineChartBaseManager {
   var _bridge: RCTBridge? {get{return self.bridge}}
   
+  func customDirectEventTypes() -> NSArray {
+    return ["onChange"]
+  }
+  
   override open func view() -> UIView! {
     let ins = RNLineChartView()
     return ins;
   }
-
+  
   override open static func requiresMainQueueSetup() -> Bool {
     return true;
   }
@@ -40,5 +44,6 @@ open class RNLineChartManager: RCTViewManager, RNBarLineChartBaseManager {
   func fitScreen(_ reactTag: NSNumber) {
     (self as RNBarLineChartBaseManager)._fitScreen(reactTag)
   }
-
+  
 }
+
