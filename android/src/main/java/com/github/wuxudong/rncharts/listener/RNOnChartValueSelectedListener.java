@@ -43,9 +43,9 @@ public class RNOnChartValueSelectedListener implements OnChartValueSelectedListe
                     "topSelect",
                     EntryToWritableMapUtils.convertEntryToWritableMap(entry));
 
-          //  WritableMap map = new WritableNativeMap();
-          //  map.putArray("data", getEntiesForXValue(entry.getX()));
-          //  reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(chart.getId(),"topChange", map);
+            WritableMap map = new WritableNativeMap();
+            map.putArray("data", getEntiesForXValue(entry.getX()));
+            reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(chart.getId(),"topChange", map);
         }
     }
 
@@ -64,11 +64,11 @@ public class RNOnChartValueSelectedListener implements OnChartValueSelectedListe
     }
 
 
-    public static WritableArray getEntiesForXValue(Chart chart,float x) {
+    private WritableArray getEntiesForXValue(float x) {
 
         WritableArray arr = new WritableNativeArray();
 
-        ArrayList<LineDataSet> dataSets = (ArrayList<LineDataSet>) chart.getData().getDataSets();
+        ArrayList<LineDataSet> dataSets = (ArrayList<LineDataSet>) this.chart.getData().getDataSets();
         for(int i=0; i< dataSets.size(); i++) {
 
             String label = ((LineDataSet)dataSets.get(i)).getLabel();
