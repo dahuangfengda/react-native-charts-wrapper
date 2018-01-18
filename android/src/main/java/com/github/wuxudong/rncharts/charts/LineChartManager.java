@@ -68,20 +68,7 @@ public class LineChartManager extends BarLineChartBaseManager<LineChart, Entry> 
     DataExtract getDataExtract() {
         return new LineDataExtract();
     }
-    
-    @Override
-    public void receiveCommand(LineChart root, int commandId, @Nullable ReadableArray args) {
-        super.receiveCommand(root, commandId, args);
-        if(commandId == 6789) {
-            float x = (float)args.getDouble(0);
-            WritableArray arr = RNOnChartValueSelectedListener.getEntiesForXValue(root, x);
 
-            WritableMap map = new WritableNativeMap();
-            map.putArray("data", arr);
-            ReactContext reactContext = (ReactContext) root.getContext();
-            reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(root.getId(),"topChange", map);
-        }
-    }
 }
 
 class MyXFormatter implements IAxisValueFormatter {
