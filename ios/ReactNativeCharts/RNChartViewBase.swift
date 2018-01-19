@@ -427,7 +427,7 @@ open class RNChartViewBase: UIView, ChartViewDelegate {
         for i in 0 ..< count {
           if let entry = set.entryForIndex(i) {
             if entry.x == xValue {
-              let dict = ["label": label, "X":"\(entry.x)", "Y": "\(entry.y)"]
+              let dict = ["label": label, "date":entry.date, "X":"\(entry.x)", "Y": "\(entry.y)"]
               retArr.append(dict)
             }
           }
