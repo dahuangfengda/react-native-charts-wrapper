@@ -13,8 +13,7 @@ open class DataExtract {
         }
         
         let chartData = createData();
-        
-        
+
         let dataSets = data["dataSets"].arrayValue;
         
         for (_, dataSet) in dataSets.enumerated() {
@@ -74,5 +73,17 @@ open class DataExtract {
         fatalError("subclass should override this function")
     }
 
-    
+}
+
+private var key: Void?
+extension ChartDataEntry {
+
+  var date: String {
+    get {
+      return (objc_getAssociatedObject(self, &key) as? String)!
+    }
+    set(newValue) {
+      objc_setAssociatedObject(self, &key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+    }
+  }
 }
