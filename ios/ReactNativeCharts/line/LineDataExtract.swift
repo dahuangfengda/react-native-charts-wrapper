@@ -103,8 +103,10 @@ class LineDataExtract : DataExtract {
             } else {
                 fatalError("invalid data " + values.description);
             }
-            
-            
+          
+          if dict["date"].string != nil {
+            entry.date = dict["date"].string!;
+          }
         } else if value.double != nil {
             entry = ChartDataEntry(x: x, y: value.doubleValue);
         } else {
