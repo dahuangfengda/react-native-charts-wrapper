@@ -12,6 +12,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.wuxudong.rncharts.data.HYSEntry;
 import com.github.wuxudong.rncharts.utils.EntryToWritableMapUtils;
 
 import java.lang.ref.WeakReference;
@@ -78,6 +79,7 @@ public class RNOnChartValueSelectedListener implements OnChartValueSelectedListe
 
                 WritableMap map = new WritableNativeMap();
                 map.putString("label", label);
+                map.putString("date", ((HYSEntry)entries.get(j)).date);
                 map.putString("X", entries.get(j).getX() + "");
                 map.putString("Y", entries.get(j).getY() + "");
                 arr.pushMap(map);
