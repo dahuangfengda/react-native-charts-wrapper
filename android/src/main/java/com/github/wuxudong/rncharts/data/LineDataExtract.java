@@ -87,15 +87,20 @@ public class LineDataExtract extends DataExtract<LineData, Entry> {
     Entry createEntry(ReadableArray values, int index) {
         float x = index;
 
-        Entry entry;
+        HYSEntry entry;
         if (ReadableType.Map.equals(values.getType(index))) {
             ReadableMap map = values.getMap(index);
             if (map.hasKey("x")) {
                 x = (float) map.getDouble("x");
             }
-            entry = new Entry(x, (float) map.getDouble("y"), ConversionUtil.toMap(map));
+            entry = new HYSEntry(x, (float) map.getDouble("y"), ConversionUtil.toMap(map));
+
+            if(map.hasKey("date")) {
+                entry.date = map.getString("date");
+            }
+
         } else if (ReadableType.Number.equals(values.getType(index))) {
-            entry = new Entry(x, (float) values.getDouble(index));
+            entry = new HYSEntry(x, (float) values.getDouble(index));
         } else {
             throw new IllegalArgumentException("Unexpected entry type: " + values.getType(index));
         }
@@ -103,3 +108,4 @@ public class LineDataExtract extends DataExtract<LineData, Entry> {
         return entry;
     }
 }
+
